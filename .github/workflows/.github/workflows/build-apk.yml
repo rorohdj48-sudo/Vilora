@@ -1,4 +1,4 @@
-name: Build VELORA APK
+  name: Build VELORA APK
 
 on:
   workflow_dispatch:
@@ -33,11 +33,11 @@ jobs:
           unzip -o VELORA-Android-Project.zip -d velora-project
 
       - name: Build APK
-        working-directory: velora-project/VELORA-Android
+        working-directory: velora-project
         run: gradle assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: VELORA-APK
-          path: velora-project/VELORA-Android/app/build/outputs/apk/debug/app-debug.apk
+          path: velora-project/app/build/outputs/apk/debug/app-debug.apk
